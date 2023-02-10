@@ -73,7 +73,7 @@ function showUserCurrentTimezone() {
   let userDate = document.querySelector("#userCurrentDate");
   userDate.innerHTML = moment()
     .tz(`${userCurrentCity}`)
-    .format("ddd, D MMM YYYY");
+    .format("dddd, D MMM YYYY");
   let userTimeOffset = document.querySelector("#userCityUTC");
   userTimeOffset.innerHTML = moment().tz(`${userCurrentCity}`).format("[UTC]Z");
 }
