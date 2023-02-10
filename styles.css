@@ -1,7 +1,58 @@
-.chooseCity,
-.timeZoneAndDate {
+:root {
+  --primary-font: "Poppins", sans-serif;
+  --widget-background: #f5f8ea;
+  --border-radius: 15px 15px;
+  --accent-font: "Lora", serif;
+}
+body {
+  font-family: var(--primary-font);
+}
+.worldClockTitle {
   font-size: 30px;
+  margin: 10px;
   display: flex;
   justify-content: center;
-  margin: 20px;
+}
+
+.rowsOfTwoCol-6Widget {
+  display: flex;
+  justify-content: center;
+}
+.widgetPadding {
+  margin: 4px;
+
+  background: var(--widget-background);
+  border-radius: var(--border-radius);
+}
+.contentOfEachWidget {
+  padding: 10px;
+}
+.cityName {
+  font-family: var(--accent-font);
+  font-size: 27px;
+  display: flex;
+  justify-content: flex-start;
+}
+.userCityName {
+  font-size: 38px;
+  display: flex;
+  justify-content: center;
+}
+.timeDisplayText {
+  font-size: 64px;
+  display: flex;
+  justify-content: center;
+}
+.dateDisplayText {
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+}
+form {
+  display: flex;
+  justify-content: flex-end;
+}
+.formWidget {
+  border-radius: 50px;
+  font-size: 12px;
 }
