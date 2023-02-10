@@ -125,3 +125,32 @@ function defaultDisplay2() {
     .format("[UTC]Z");
 }
 defaultDisplay2();
+
+function changeTheme(event) {
+  let selectedThemeName = event.target.value;
+  console.log(selectedThemeName);
+
+  if (selectedThemeName === "cool") {
+    let coolTheme = document.querySelector("body");
+    coolTheme.classList.remove("romantic");
+    coolTheme.classList.remove("dawn");
+    coolTheme.classList.add("dark");
+  } else if (selectedThemeName === "romantic") {
+    let romanticTheme = document.querySelector("body");
+    romanticTheme.classList.remove("dark");
+    romanticTheme.classList.remove("dawn");
+    romanticTheme.classList.add("romantic");
+  } else if (selectedThemeName === "dawn") {
+    let oceanTheme = document.querySelector("body");
+    oceanTheme.classList.remove("dark");
+    oceanTheme.classList.remove("romantic");
+    oceanTheme.classList.add("dawn");
+  } else {
+    let naturalTheme = document.querySelector("body");
+    naturalTheme.classList.remove("dark");
+    naturalTheme.classList.remove("romantic");
+    naturalTheme.classList.remove("dawn");
+  }
+}
+let themeSelect = document.querySelector("#theme-colors-widget");
+themeSelect.addEventListener("change", changeTheme);
