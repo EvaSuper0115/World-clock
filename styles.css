@@ -210,3 +210,6 @@ a {
 .dawn .timeDisplayText {
   color: white;
 }
+.dawn .cityName {
+  color: rgb(213 213 213 / 93%);
+}
