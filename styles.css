@@ -48,6 +48,18 @@ body {
   display: flex;
   justify-content: center;
 }
+.timeOffsetwidget {
+  display: flex;
+  justify-content: flex-end;
+}
+.timeDifferenceDisplayText {
+  display: flex;
+  justify-content: center;
+  padding: 6px;
+  background: rgb(219, 219, 219);
+
+  border-radius: 50px;
+}
 form {
   display: flex;
   justify-content: flex-end;

@@ -4,6 +4,9 @@ function displayChosenTimezone(event) {
     let now = moment().tz(`${userChosenTimeZoneValue}`);
     let timezoneTime = now.format("HH:mm:ss");
     let timezoneDate = now.format("ddd, D MMM YYYY");
+    let chosenCityTimeOffset = moment()
+      .tz(`${userChosenTimeZoneValue}`)
+      .format("Z");
 
     let chosenCity = document.querySelector("#chosenCity");
     chosenCity.innerHTML = `${userChosenTimeZoneValue}`;
@@ -13,6 +16,9 @@ function displayChosenTimezone(event) {
 
     let chosenCityDate = document.querySelector("#chosenCitytDate");
     chosenCityDate.innerHTML = `${timezoneDate}`;
+
+    let chosenCityTimeDifference = document.querySelector("#timeDifference");
+    chosenCityTimeDifference.innerHTML = `${chosenCityTimeOffset}`;
   }
 }
 
@@ -46,9 +52,5 @@ defaultCityDate.innerHTML = moment()
   .tz(`${defaultCity}`)
   .format("ddd, D MMM YYYY");
 
-function changeTimeFormat(event) {
-  let userTime = document.querySelector("#userCurrentTime");
-  userTime.innerHTML = moment().tz(`${userCurrentCity}`).format("hh:mm:ss A");
-}
-let timeFormatButton = document.querySelector(".amPmbutton");
-timeFormatButton.addEventListener("click", changeTimeFormat);
+let defaultCityTimeOffset = document.querySelector("#timeDifference");
+defaultCityTimeOffset.innerHTML = moment().tz(`${defaultCity}`).format("Z");
