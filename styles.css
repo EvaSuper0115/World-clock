@@ -83,6 +83,7 @@ body {
   padding: 6px;
   background: white;
   border-radius: 50px;
+  opacity: 0.7;
 }
 form {
   display: flex;
@@ -97,4 +98,23 @@ form {
     rgb(240, 241, 243) 45%,
     rgb(251, 251, 248) 95%
   );
+  opacity: 0.7;
+  border-width: 0;
+}
+@media (max-width: 576px) {
+  form,
+  .cityName {
+    justify-content: center;
+  }
+}
+@media (max-width: 279px) {
+  #userCurrentTime {
+    font-size: 49px;
+  }
+  .cityName {
+    font-size: 17px;
+  }
+  .timeDisplayText {
+    font-size: 38px;
+  }
 }
