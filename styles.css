@@ -112,6 +112,7 @@ form {
 }
 #theme-colors-widget {
   font-size: 22px;
+  text-align: center;
 }
 .formWidget:hover {
   font-size: 12.5px;
