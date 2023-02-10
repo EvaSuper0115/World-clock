@@ -14,18 +14,20 @@ body {
   justify-content: center;
 }
 
-.rowsOfTwoCol-6Widget {
-  display: flex;
-  justify-content: center;
-}
-.widgetPadding {
-  margin: 4px;
+.widgetPadding,
+.bigWidgetPadding {
+  margin: 4px 4px;
 
   background: var(--widget-background);
   border-radius: var(--border-radius);
+  min-width: 100%;
+}
+.row {
+  margin-left: 12px;
+  margin-right: 12px;
 }
 .contentOfEachWidget {
-  padding: 10px;
+  padding: 22px;
 }
 .cityName {
   font-family: var(--accent-font);
