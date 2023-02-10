@@ -35,7 +35,7 @@ body {
   background: var(--widget-background);
   border-radius: 60px;
   display: block;
-  margin: 6px auto;
+  margin: 4px auto;
   max-width: 500px;
 }
 .bigWidgetPadding {
@@ -60,6 +60,7 @@ body {
   font-size: 24px;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 .userTimeDisplayText {
   display: flex;
@@ -110,7 +111,7 @@ form {
   transition: all 200ms ease-in-out;
 }
 #theme-colors-widget {
-  font-size: 19px;
+  font-size: 22px;
 }
 .formWidget:hover {
   font-size: 12.5px;
