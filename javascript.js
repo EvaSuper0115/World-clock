@@ -1,6 +1,9 @@
 function showInfoOfChosenCity(event) {
   let userChosenTimeZoneValue = event.target.value;
   if (userChosenTimeZoneValue.length > 0) {
+    let userChosenCityFormattedName = userChosenTimeZoneValue
+      .replace("_", " ")
+      .split("/")[1];
     let now = moment().tz(`${userChosenTimeZoneValue}`);
     let timezoneTime = now.format("HH:mm:ss");
 
@@ -10,7 +13,7 @@ function showInfoOfChosenCity(event) {
       .format("[UTC]Z");
 
     let chosenCity = document.querySelector("#chosenCity");
-    chosenCity.innerHTML = `${userChosenTimeZoneValue}`;
+    chosenCity.innerHTML = `${userChosenCityFormattedName}`;
 
     let chosenCityTime = document.querySelector("#chosenCityTime");
     chosenCityTime.innerHTML = `${timezoneTime} `;
@@ -28,6 +31,9 @@ function showInfoOfChosenCity(event) {
 function showInfoOfChosenCity2(event) {
   let userChosenTimeZoneValue = event.target.value;
   if (userChosenTimeZoneValue.length > 0) {
+    let userChosenCityFormattedName = userChosenTimeZoneValue
+      .replace("_", " ")
+      .split("/")[1];
     let now = moment().tz(`${userChosenTimeZoneValue}`);
     let timezoneTime = now.format("HH:mm:ss");
     let timezoneDate = now.format("ddd, D MMM YYYY");
@@ -36,7 +42,7 @@ function showInfoOfChosenCity2(event) {
       .format("[UTC]Z");
 
     let chosenCity = document.querySelector("#chosenCity2");
-    chosenCity.innerHTML = `${userChosenTimeZoneValue}`;
+    chosenCity.innerHTML = `${userChosenCityFormattedName}`;
 
     let chosenCityTime = document.querySelector("#chosenCityTime2");
     chosenCityTime.innerHTML = `${timezoneTime} `;
@@ -53,8 +59,11 @@ function showInfoOfChosenCity2(event) {
 
 function showUserCurrentTimezone() {
   let userCurrentCity = moment.tz.guess();
+  let userCurrentCityFormattedName = userCurrentCity
+    .replace("_", " ")
+    .split("/")[1];
   let userCity = document.querySelector("#userCurrentTimezone");
-  userCity.innerHTML = `${userCurrentCity}`;
+  userCity.innerHTML = `${userCurrentCityFormattedName}`;
   let userTime = document.querySelector("#userCurrentTime");
   userTime.innerHTML = moment().tz(`${userCurrentCity}`).format("HH:mm:ss");
   let userDate = document.querySelector("#userCurrentDate");
@@ -69,9 +78,10 @@ setInterval(showUserCurrentTimezone, 1000);
 
 function defaultDisplay1() {
   let defaultCity = "Asia/Hong_Kong";
-
+  let defaultCityFormattedName = defaultCity.replace("_", " ").split("/")[1];
   let defaultCityName = document.querySelector("#chosenCity");
-  defaultCityName.innerHTML = `${defaultCity}`;
+
+  defaultCityName.innerHTML = `${defaultCityFormattedName}`;
 
   let defaultCityTime = document.querySelector("#chosenCityTime");
   defaultCityTime.innerHTML = moment().tz(`${defaultCity}`).format("HH:mm:ss");
@@ -96,9 +106,9 @@ defaultDisplay1();
 
 function defaultDisplay2() {
   let defaultCity = "Asia/Tokyo";
-
+  let defaultCityFormattedName = defaultCity.replace("_", " ").split("/")[1];
   let defaultCityName = document.querySelector("#chosenCity2");
-  defaultCityName.innerHTML = `${defaultCity}`;
+  defaultCityName.innerHTML = `${defaultCityFormattedName}`;
 
   let defaultCityTime = document.querySelector("#chosenCityTime2");
   defaultCityTime.innerHTML = moment().tz(`${defaultCity}`).format("HH:mm:ss");
