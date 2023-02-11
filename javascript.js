@@ -1,5 +1,5 @@
-function showInfoOfChosenCity(timeInfo) {
-  let userChosenTimeZoneValue = timeInfo;
+function showInfoOfChosenCity(event) {
+  let userChosenTimeZoneValue = event.target.value;
   if (userChosenTimeZoneValue.length > 0) {
     let now = moment().tz(`${userChosenTimeZoneValue}`);
     let timezoneTime = now.format("HH:mm:ss");
@@ -24,15 +24,8 @@ function showInfoOfChosenCity(timeInfo) {
   }
 }
 
-function displayChosenTimezone(event) {
-  showInfoOfChosenCity(event.target.value);
-}
-
-let userChoice = document.querySelector("#user-chosen-timezones");
-userChoice.addEventListener("change", displayChosenTimezone);
-
-function showInfoOfChosenCity2(timeInfo) {
-  let userChosenTimeZoneValue = timeInfo;
+function showInfoOfChosenCity2(event) {
+  let userChosenTimeZoneValue = event.target.value;
   if (userChosenTimeZoneValue.length > 0) {
     let now = moment().tz(`${userChosenTimeZoneValue}`);
     let timezoneTime = now.format("HH:mm:ss");
@@ -56,13 +49,6 @@ function showInfoOfChosenCity2(timeInfo) {
     chosenCityTimeDifference.innerHTML = `${chosenCityTimeOffset}`;
   }
 }
-
-function displayChosenTimezone2(event) {
-  showInfoOfChosenCity2(event.target.value);
-}
-
-let userChoice2 = document.querySelector("#user-chosen-timezones2");
-userChoice2.addEventListener("change", displayChosenTimezone2);
 
 function showUserCurrentTimezone() {
   let userCurrentCity = moment.tz.guess();
@@ -100,6 +86,9 @@ function defaultDisplay1() {
   defaultCityTimeOffset.innerHTML = moment()
     .tz(`${defaultCity}`)
     .format("[UTC]Z");
+
+  let userChoice = document.querySelector("#user-chosen-timezones");
+  userChoice.addEventListener("change", showInfoOfChosenCity);
 }
 defaultDisplay1();
 
@@ -123,6 +112,9 @@ function defaultDisplay2() {
   defaultCityTimeOffset.innerHTML = moment()
     .tz(`${defaultCity}`)
     .format("[UTC]Z");
+
+  let userChoice2 = document.querySelector("#user-chosen-timezones2");
+  userChoice2.addEventListener("change", showInfoOfChosenCity2);
 }
 defaultDisplay2();
 
