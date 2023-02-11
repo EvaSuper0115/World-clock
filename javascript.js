@@ -3,6 +3,7 @@ function showInfoOfChosenCity(event) {
   if (userChosenTimeZoneValue.length > 0) {
     let now = moment().tz(`${userChosenTimeZoneValue}`);
     let timezoneTime = now.format("HH:mm:ss");
+
     let timezoneDate = now.format("ddd, D MMM YYYY");
     let chosenCityTimeOffset = moment()
       .tz(`${userChosenTimeZoneValue}`)
@@ -86,10 +87,11 @@ function defaultDisplay1() {
   defaultCityTimeOffset.innerHTML = moment()
     .tz(`${defaultCity}`)
     .format("[UTC]Z");
-
-  let userChoice = document.querySelector("#user-chosen-timezones");
-  userChoice.addEventListener("change", showInfoOfChosenCity);
 }
+
+let userChoice = document.querySelector("#user-chosen-timezones");
+userChoice.addEventListener("change", showInfoOfChosenCity);
+
 defaultDisplay1();
 
 function defaultDisplay2() {
