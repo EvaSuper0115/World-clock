@@ -1,31 +1,36 @@
+let infoCityInterval1 = null;
 function showInfoOfChosenCity(event) {
   let userChosenTimeZoneValue = event.target.value;
   if (userChosenTimeZoneValue.length > 0) {
-    let userChosenCityFormattedName = userChosenTimeZoneValue
-      .replace("_", " ")
-      .split("/")[1];
-    let now = moment().tz(`${userChosenTimeZoneValue}`);
-    let timezoneTime = now.format("HH:mm:ss");
-
-    let timezoneDate = now.format("ddd, D MMM YYYY");
-    let chosenCityTimeOffset = moment()
-      .tz(`${userChosenTimeZoneValue}`)
-      .format("[UTC]Z");
-
-    let chosenCity = document.querySelector("#chosenCity");
-    chosenCity.innerHTML = `${userChosenCityFormattedName}`;
-
-    let chosenCityTime = document.querySelector("#chosenCityTime");
-    chosenCityTime.innerHTML = `${timezoneTime} `;
-
-    let chosenCityDate = document.querySelector("#chosenCitytDate");
-    chosenCityDate.innerHTML = `${timezoneDate}`;
-
-    let chosenCityTimeDifference = document.querySelector(
-      "#timeDifferenceChosenCity1"
-    );
-    chosenCityTimeDifference.innerHTML = `${chosenCityTimeOffset}`;
+    clearInterval(infoCityInterval1);
+    updateCityInfo1(userChosenTimeZoneValue);
+    infoCityInterval1 = setInterval(() => {
+      updateCityInfo1(userChosenTimeZoneValue);
+    }, 1000);
   }
+}
+
+function updateCityInfo1(timezone) {
+  let userChosenCityFormattedName = timezone.replace("_", " ").split("/")[1];
+  let now = moment().tz(`${timezone}`);
+  let timezoneTime = now.format("HH:mm:ss");
+
+  let timezoneDate = now.format("ddd, D MMM YYYY");
+  let chosenCityTimeOffset = moment().tz(`${timezone}`).format("[UTC]Z");
+
+  let chosenCity = document.querySelector("#chosenCity");
+  chosenCity.innerHTML = `${userChosenCityFormattedName}`;
+
+  let chosenCityTime = document.querySelector("#chosenCityTime");
+  chosenCityTime.innerHTML = `${timezoneTime} `;
+
+  let chosenCityDate = document.querySelector("#chosenCitytDate");
+  chosenCityDate.innerHTML = `${timezoneDate}`;
+
+  let chosenCityTimeDifference = document.querySelector(
+    "#timeDifferenceChosenCity1"
+  );
+  chosenCityTimeDifference.innerHTML = `${chosenCityTimeOffset}`;
 }
 
 function showInfoOfChosenCity2(event) {
@@ -83,20 +88,9 @@ function defaultDisplay1() {
 
   defaultCityName.innerHTML = `${defaultCityFormattedName}`;
 
-  let defaultCityTime = document.querySelector("#chosenCityTime");
-  defaultCityTime.innerHTML = moment().tz(`${defaultCity}`).format("HH:mm:ss");
-
-  let defaultCityDate = document.querySelector("#chosenCitytDate");
-  defaultCityDate.innerHTML = moment()
-    .tz(`${defaultCity}`)
-    .format("ddd, D MMM YYYY");
-
-  let defaultCityTimeOffset = document.querySelector(
-    "#timeDifferenceChosenCity1"
-  );
-  defaultCityTimeOffset.innerHTML = moment()
-    .tz(`${defaultCity}`)
-    .format("[UTC]Z");
+  setInterval(() => {
+    infoCityInterval1 = updateCityInfo1(defaultCity);
+  }, 1000);
 }
 
 let userChoice = document.querySelector("#user-chosen-timezones");
