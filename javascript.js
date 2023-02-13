@@ -3,9 +3,10 @@ function showInfoOfChosenCity(event) {
   let userChosenTimeZoneValue = event.target.value;
   if (userChosenTimeZoneValue.length > 0) {
     clearInterval(infoCityInterval1);
+    clearInterval(defaultDisplay1);
     updateCityInfo1(userChosenTimeZoneValue);
-    setInterval(() => {
-      infoCityInterval1 = updateCityInfo1(defaultCity);
+    infoCityInterval1 = setInterval(() => {
+      updateCityInfo1(userChosenTimeZoneValue);
     }, 1000);
   }
 }
@@ -91,7 +92,6 @@ function defaultDisplay1() {
   infoCityInterval1 = setInterval(() => {
     updateCityInfo1(defaultCity);
   }, 1000);
-  showInfoOfChosenCity(defaultCity);
 }
 
 let userChoice = document.querySelector("#user-chosen-timezones");
