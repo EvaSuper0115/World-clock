@@ -4,8 +4,8 @@ function showInfoOfChosenCity(event) {
   if (userChosenTimeZoneValue.length > 0) {
     clearInterval(infoCityInterval1);
     updateCityInfo1(userChosenTimeZoneValue);
-    infoCityInterval1 = setInterval(() => {
-      updateCityInfo1(userChosenTimeZoneValue);
+    setInterval(() => {
+      infoCityInterval1 = updateCityInfo1(defaultCity);
     }, 1000);
   }
 }
@@ -88,8 +88,8 @@ function defaultDisplay1() {
 
   defaultCityName.innerHTML = `${defaultCityFormattedName}`;
 
-  setInterval(() => {
-    infoCityInterval1 = updateCityInfo1(defaultCity);
+  infoCityInterval1 = setInterval(() => {
+    updateCityInfo1(defaultCity);
   }, 1000);
 }
 
