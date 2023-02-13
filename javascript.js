@@ -91,6 +91,7 @@ function defaultDisplay1() {
   infoCityInterval1 = setInterval(() => {
     updateCityInfo1(defaultCity);
   }, 1000);
+  showInfoOfChosenCity(defaultCity);
 }
 
 let userChoice = document.querySelector("#user-chosen-timezones");
